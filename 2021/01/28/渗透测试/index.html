@@ -6,15 +6,15 @@
   
   <title>渗透测试 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="渗透测试基本思路： 1.信息收集（前提） 2.漏洞挖掘 3.漏洞利用 4.输出渗透测试报告">
+  <meta name="description" content="渗透测试基本思路：1.信息收集（前提） 2.漏洞挖掘 3.漏洞利用 4.输出渗透测试报告 信息收集1.基本信息  —域名信息   —子域名   —IP地址   —同IP的其他网站（旁站）   —同网段的其他服务器信息（C段）   —端口   —服务、服务版本   —信息泄露   —网站目录 2.OS操作系统（使用nmap工具）  —类型、版本：Windows、Mac、Linux、Unix等 3.w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渗透测试">
 <meta property="og:url" content="http://example.com/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="渗透测试基本思路： 1.信息收集（前提） 2.漏洞挖掘 3.漏洞利用 4.输出渗透测试报告">
+<meta property="og:description" content="渗透测试基本思路：1.信息收集（前提） 2.漏洞挖掘 3.漏洞利用 4.输出渗透测试报告 信息收集1.基本信息  —域名信息   —子域名   —IP地址   —同IP的其他网站（旁站）   —同网段的其他服务器信息（C段）   —端口   —服务、服务版本   —信息泄露   —网站目录 2.OS操作系统（使用nmap工具）  —类型、版本：Windows、Mac、Linux、Unix等 3.w">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-28T07:32:21.000Z">
-<meta property="article:modified_time" content="2021-01-28T07:33:39.774Z">
+<meta property="article:modified_time" content="2021-02-09T08:35:37.260Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="1-1">
 <meta name="twitter:card" content="summary">
@@ -96,11 +96,29 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>渗透测试基本思路：</p>
-<p>1.信息收集（前提）</p>
+        <h2 id="渗透测试基本思路："><a href="#渗透测试基本思路：" class="headerlink" title="渗透测试基本思路："></a>渗透测试基本思路：</h2><p>1.信息收集（前提）</p>
 <p>2.漏洞挖掘</p>
 <p>3.漏洞利用</p>
 <p>4.输出渗透测试报告</p>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><h4 id="1-基本信息"><a href="#1-基本信息" class="headerlink" title="1.基本信息"></a>1.基本信息</h4><p>  —域名信息</p>
+<p>  —子域名</p>
+<p>  —IP地址</p>
+<p>  —同IP的其他网站（旁站）</p>
+<p>  —同网段的其他服务器信息（C段）</p>
+<p>  —端口</p>
+<p>  —服务、服务版本</p>
+<p>  —信息泄露</p>
+<p>  —网站目录</p>
+<h4 id="2-OS操作系统（使用nmap工具）"><a href="#2-OS操作系统（使用nmap工具）" class="headerlink" title="2.OS操作系统（使用nmap工具）"></a>2.OS操作系统（使用nmap工具）</h4><p>  —类型、版本：Windows、Mac、Linux、Unix等</p>
+<h4 id="3-web中间件（web程序，用来提供网页服务）"><a href="#3-web中间件（web程序，用来提供网页服务）" class="headerlink" title="3.web中间件（web程序，用来提供网页服务）"></a>3.web中间件（web程序，用来提供网页服务）</h4><p>   —类型、版本：iss，apache，nginx，weblogic等</p>
+<h4 id="4-数据库"><a href="#4-数据库" class="headerlink" title="4.数据库"></a>4.数据库</h4><p>  —类型、版本：mysql，mssql，nginx，weblogic等</p>
+<h4 id="5-服务器后端脚本"><a href="#5-服务器后端脚本" class="headerlink" title="5.服务器后端脚本"></a>5.服务器后端脚本</h4><p>  —类型、版本：php，jsp，asp，aspx等</p>
+<hr>
+<h2 id="端口扫描技术"><a href="#端口扫描技术" class="headerlink" title="端口扫描技术"></a>端口扫描技术</h2><p> 定义：</p>
+<p>​        &lt;通常使用专门的端口扫描工具来进行。可以详细收集目标开放的端口、服务、应用      版本、操作系统、活跃主机等多种信息。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点&gt;</p>
+<h3 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h3><h5 id="存活判断——-gt-端口扫描——-gt-服务识别"><a href="#存活判断——-gt-端口扫描——-gt-服务识别" class="headerlink" title="存活判断——&gt;端口扫描——&gt;服务识别"></a><strong>存活判断——&gt;端口扫描——&gt;服务识别</strong></h5><h4 id="1-服务识别技术"><a href="#1-服务识别技术" class="headerlink" title="1.服务识别技术"></a>1.服务识别技术</h4><h4 id="2-识别端口上运行的服务，识别方式有：基于端口，基于banner，基于指纹三种"><a href="#2-识别端口上运行的服务，识别方式有：基于端口，基于banner，基于指纹三种" class="headerlink" title="2.识别端口上运行的服务，识别方式有：基于端口，基于banner，基于指纹三种"></a>2.识别端口上运行的服务，识别方式有：基于端口，基于banner，基于指纹三种</h4><p>   -<strong>–基于端口</strong>：根据端口默认运行的服务进行判断（准确率低，效率高）</p>
+<p>   <strong>—基于banner</strong>：根据访问端口获取的欢迎页面来判断（准确率中，效率高）</p>
+<p>   <strong>—基于指纹</strong>：根据不同系统不同服务具有不同TCP/IP协议栈来判断（准确率高，效率低）</p>
 
       
     </div>
