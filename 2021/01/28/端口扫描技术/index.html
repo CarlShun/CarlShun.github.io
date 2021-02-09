@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>渗透测试-信息收集 | Hexo</title>
+  <title>端口扫描技术 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="信息收集1.基本信息  —域名信息   —子域名   —IP地址   —同IP的其他网站（旁站）   —同网段的其他服务器信息（C段）   —端口   —服务、服务版本   —信息泄露   —网站目录 2.OS操作系统（使用nmap工具）  —类型、版本：Windows、Mac、Linux、Unix等 3.web中间件（web程序，用来提供网页服务）   —类型、版本：iss，apache，ngi">
+  <meta name="description" content="定义：​        &lt;通常使用专门的端口扫描工具来进行。可以详细收集目标开放的端口、服务、应用      版本、操作系统、活跃主机等多种信息。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点&gt; 流程：存活判断——&gt;端口扫描——">
 <meta property="og:type" content="article">
-<meta property="og:title" content="渗透测试-信息收集">
-<meta property="og:url" content="http://example.com/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%951-2/index.html">
+<meta property="og:title" content="端口扫描技术">
+<meta property="og:url" content="http://example.com/2021/01/28/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="信息收集1.基本信息  —域名信息   —子域名   —IP地址   —同IP的其他网站（旁站）   —同网段的其他服务器信息（C段）   —端口   —服务、服务版本   —信息泄露   —网站目录 2.OS操作系统（使用nmap工具）  —类型、版本：Windows、Mac、Linux、Unix等 3.web中间件（web程序，用来提供网页服务）   —类型、版本：iss，apache，ngi">
+<meta property="og:description" content="定义：​        &lt;通常使用专门的端口扫描工具来进行。可以详细收集目标开放的端口、服务、应用      版本、操作系统、活跃主机等多种信息。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点&gt; 流程：存活判断——&gt;端口扫描——">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-28T08:03:50.000Z">
-<meta property="article:modified_time" content="2021-01-28T08:20:25.761Z">
+<meta property="article:published_time" content="2021-01-28T08:29:27.000Z">
+<meta property="article:modified_time" content="2021-01-28T08:56:02.775Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="信息收集">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-渗透测试1-2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-端口扫描技术" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%951-2/" class="article-date">
-  <time class="dt-published" datetime="2021-01-28T08:03:50.000Z" itemprop="datePublished">2021-01-28</time>
+    <a href="/2021/01/28/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF/" class="article-date">
+  <time class="dt-published" datetime="2021-01-28T08:29:27.000Z" itemprop="datePublished">2021-01-28</time>
 </a>
     
   </div>
@@ -88,7 +88,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      渗透测试-信息收集
+      端口扫描技术
     </h1>
   
 
@@ -96,28 +96,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><h2 id="1-基本信息"><a href="#1-基本信息" class="headerlink" title="1.基本信息"></a>1.基本信息</h2><p>  —域名信息</p>
-<p>  —子域名</p>
-<p>  —IP地址</p>
-<p>  —同IP的其他网站（旁站）</p>
-<p>  —同网段的其他服务器信息（C段）</p>
-<p>  —端口</p>
-<p>  —服务、服务版本</p>
-<p>  —信息泄露</p>
-<p>  —网站目录</p>
-<h2 id="2-OS操作系统（使用nmap工具）"><a href="#2-OS操作系统（使用nmap工具）" class="headerlink" title="2.OS操作系统（使用nmap工具）"></a>2.OS操作系统（使用nmap工具）</h2><p>  —类型、版本：Windows、Mac、Linux、Unix等</p>
-<h2 id="3-web中间件（web程序，用来提供网页服务）"><a href="#3-web中间件（web程序，用来提供网页服务）" class="headerlink" title="3.web中间件（web程序，用来提供网页服务）"></a>3.web中间件（web程序，用来提供网页服务）</h2><p>   —类型、版本：iss，apache，nginx，weblogic等</p>
-<h2 id="4-数据库"><a href="#4-数据库" class="headerlink" title="4.数据库"></a>4.数据库</h2><p>  —类型、版本：mysql，mssql，nginx，weblogic等</p>
-<h2 id="5-服务器后端脚本"><a href="#5-服务器后端脚本" class="headerlink" title="5.服务器后端脚本"></a>5.服务器后端脚本</h2><p>  —类型、版本：php，jsp，asp，aspx等</p>
+        <h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>​        &lt;通常使用专门的端口扫描工具来进行。可以详细收集目标开放的端口、服务、应用      版本、操作系统、活跃主机等多种信息。端口扫描是计算机解密高手喜欢的一种方式。攻击者可以通过它了解到从哪里可探寻到攻击弱点。实质上，端口扫描包括向每个端口发送消息，一次只发送一个消息。接收到的回应类型表示是否在使用该端口并且可由此探寻弱点&gt;</p>
+<h2 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h2><h5 id="存活判断——-gt-端口扫描——-gt-服务识别"><a href="#存活判断——-gt-端口扫描——-gt-服务识别" class="headerlink" title="存活判断——&gt;端口扫描——&gt;服务识别"></a><strong>存活判断——&gt;端口扫描——&gt;服务识别</strong></h5><p>1.服务识别技术</p>
+<p>2.识别端口上运行的服务，识别方式有：基于端口，基于banner，基于指纹三种</p>
+<p>   —基于端口：根据端口默认运行的服务进行判断（准确率低，效率高）</p>
+<p>   —基于banner：根据访问端口获取的欢迎页面来判断（准确率中，效率高）</p>
+<p>   —基于指纹：根据不同系统不同服务具有不同TCP/IP协议栈来判断（准确率高，效率低）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%951-2/" data-id="ckkgl8lt300004ow0a6sk226c" data-title="渗透测试-信息收集" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/01/28/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF/" data-id="ckkxqvh6n00010sw017myh16y" data-title="端口扫描技术" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" rel="tag">信息收集</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
 
     </footer>
   </div>
@@ -125,19 +118,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/01/28/%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E6%8A%80%E6%9C%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/09/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          端口扫描技术
+          网络协议
         
       </div>
     </a>
   
   
-    <a href="/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/01/28/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%951-2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">渗透测试</div>
+      <div class="article-nav-title">渗透测试-信息收集</div>
     </a>
   
 </nav>
