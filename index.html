@@ -115,9 +115,11 @@
 <p> IEEE802.3    【D.MAC】【S.MAC】【Length】 【LLC】【SNAP】【Date】【FCS】</p>
 <p>  =Length/Type &gt;=1536(0×0600)——&gt;&gt;Ethernet_II</p>
 <p>  =Length/Type &lt;=1500(0×05DC)——&gt;&gt;IEEE802.3</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="Ethernet-II-以太网-帧格式："><a href="#Ethernet-II-以太网-帧格式：" class="headerlink" title="-Ethernet_II(以太网) 帧格式："></a>-Ethernet_II(以太网) 帧格式：</h4><p>【D.MAC】【S.MAC】【Type】【      Date     】【FCS】</p>
-<p>​        6B              6B             2B            46-1500B         4B</p>
-<p>  目的MAC     源MAC         类型               IP包            校验</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="Ethernet-II-以太网-帧格式："><a href="#Ethernet-II-以太网-帧格式：" class="headerlink" title="-Ethernet_II(以太网) 帧格式："></a>-Ethernet_II(以太网) 帧格式：</h4><p>【D.MAC】–目的MAC       6B</p>
+<p>【S.MAC】 –源MAC           6B</p>
+<p>【 Type 】  –类型               2B</p>
+<p>【 Date 】  –IP包                46-1500B</p>
+<p>【  FCS 】  –校验                4B</p>
 <p><em>———以太网数据帧的长度在64-1518字节之间</em></p>
 <hr>
 <h4 id="MAC地址（物理地址）："><a href="#MAC地址（物理地址）：" class="headerlink" title="MAC地址（物理地址）："></a>MAC地址（物理地址）：</h4><p>由两部分组成，分别是供应商代码和序列号。其中前24位（OUI)代表该供应商代码，由IEEE管理和分配。剩下的24位序列由厂商自己分配。</p>
