@@ -71,6 +71,135 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据通信模型&amp;网络层协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE/" class="article-date">
+  <time class="dt-published" datetime="2021-02-10T09:51:27.000Z" itemprop="datePublished">2021-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE/">数据通信模型&amp;网络层协议</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="网络层协议-ARP-ICMP"><a href="#网络层协议-ARP-ICMP" class="headerlink" title="网络层协议  ARP/ICMP"></a>网络层协议  ARP/ICMP</h2><h3 id="ARP-Address-Resolution-Protocol-协议"><a href="#ARP-Address-Resolution-Protocol-协议" class="headerlink" title="ARP(Address Resolution Protocol)协议"></a>ARP(Address Resolution Protocol)协议</h3><ul>
+<li><p>当网络设备有数据要发送给另一台网络设备是，必须要知道对方的网络层地址（即地址）。IP地址由网络层来提供，但是仅有IP地址是不够得，IP数据报文必须封装成帧才能通过数据链路进行发送。数据帧必须包含目的MAC地址，因此发送端还必须获取到目的的MAC地址。通过目的IP地址来获取目的MAC地址的过程就是由ARP(Address Resolution Protocol)协议来实现的。</p>
+</li>
+<li><p>ARP工作过程</p>
+</li>
+<li><p>ARP缓存</p>
+</li>
+<li><p>ARP数据包格式</p>
+<p><em>ARP报文不能穿越路由器，不能被传播到广播域。</em></p>
+</li>
+<li><p>ARP请求</p>
+</li>
+<li><p>ARP响应</p>
+</li>
+<li><p>ARP代理</p>
+<p><em>位于不同网络的网络设备在不<strong>配置网关</strong>的情况下，可以通过ARP代理实现相互通信。</em></p>
+</li>
+<li><p>免费ARP</p>
+<p><em>免费ARP可以用来探测IP地址是否冲突</em></p>
+</li>
+</ul>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>​       1、<strong>ARP请求以广播发送、以单播回应</strong><br>​       2、<strong>路由器隔离广播。每一个网段都是独立的广播域</strong><br>​       3、<strong>跨越网段通信需要使用网关的MAC地址</strong></p>
+<hr>
+<h3 id="ICMP-Internet-Control-Message-Protocol-协议"><a href="#ICMP-Internet-Control-Message-Protocol-协议" class="headerlink" title="ICMP(Internet Control Message Protocol)协议"></a>ICMP(Internet Control Message Protocol)协议</h3><ul>
+<li><p>Internet控制信息协议ICMP是网络层的一个重要协议。ICMP协议用来在网络设备间传递各种差错和控制信息，并对于收集各种网络信息、这段和排除各种网络故障等方面起着至关重要的额作用。</p>
+</li>
+<li><p>ICMP差错检测：ICMP Echo Request和ICMP Echo Reploy消息常用于诊断源和目的地之间的网络连通性。</p>
+</li>
+<li><p>ICMP重定向(Redirect)</p>
+</li>
+<li><p>ICMP错误报告</p>
+<p><em>当网络设备无法访问目标网络时，会自动发送ICMP目的不可达报文到发送端设备。</em></p>
+</li>
+<li><p>ICMP数据包格式</p>
+</li>
+<li><p>ICMP消息类型和编码类型</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">编码</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">Echo Reply</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">网络不可达(Network Unreachable)</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">主机不可达(Host Unreachable)</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">协议不可达(Protocol Unreachable)</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">端口不可达(Port Unreachable)</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">0</td>
+<td align="center">重定向(Redirect For Network)</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">0</td>
+<td align="center">Echo Request</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>ICMP应用-Ping</p>
+</li>
+<li><p>ICMP应用-Tracert</p>
+<p><em>Tracert显示数据包在网络传输过程中所经过的每一跳</em>。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE/" data-id="ckkz99suu000030w079ena15i" data-title="数据通信模型&amp;网络层协议" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/" rel="tag">网络及协议基础</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-数据通信模型&amp;传输层协议TCP-UDP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/" class="article-date">
@@ -424,6 +553,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE/">数据通信模型&amp;网络层协议</a>
+          </li>
         
           <li>
             <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/">数据通信模型&amp;传输层协议TCP/UDP</a>
