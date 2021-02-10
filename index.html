@@ -71,9 +71,123 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-网络协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-数据通信模型&amp;传输层协议TCP-UDP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/02/09/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" class="article-date">
+    <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/" class="article-date">
+  <time class="dt-published" datetime="2021-02-10T07:37:08.000Z" itemprop="datePublished">2021-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/">数据通信模型&amp;传输层协议TCP/UDP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="传输层协议-TCP-UDP"><a href="#传输层协议-TCP-UDP" class="headerlink" title="传输层协议 TCP/UDP"></a>传输层协议 TCP/UDP</h2><h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><ul>
+<li>TCP是一种<strong>面向连接</strong>的传输层协议，可提供<strong>可靠的传输服务</strong>。</li>
+</ul>
+<h5 id="—TCP端口号"><a href="#—TCP端口号" class="headerlink" title="—TCP端口号"></a>—TCP端口号</h5><table>
+<thead>
+<tr>
+<th align="center">协议</th>
+<th align="center">端口号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">FTP</td>
+<td align="center">21、20</td>
+</tr>
+<tr>
+<td align="center">TFTP</td>
+<td align="center">69</td>
+</tr>
+<tr>
+<td align="center">HTTP</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">Telnet</td>
+<td align="center">23</td>
+</tr>
+<tr>
+<td align="center">SMTP</td>
+<td align="center">25</td>
+</tr>
+<tr>
+<td align="center">DNS</td>
+<td align="center">53</td>
+</tr>
+<tr>
+<td align="center">SNMP</td>
+<td align="center">161</td>
+</tr>
+</tbody></table>
+<p><em>——————————端口范围：0-65535</em></p>
+<p><em>——————————————————————————————–端口号用来区分不同的网络服务。</em></p>
+<h3 id="—TCP建立连接的过程-三次握手"><a href="#—TCP建立连接的过程-三次握手" class="headerlink" title="—TCP建立连接的过程(三次握手)"></a>—TCP建立连接的过程(三次握手)</h3><ul>
+<li><p> 主机A  ——&gt;  Send SYN(seq=a,SYN)  ——&gt;  主机B</p>
+</li>
+<li><p> 主机B  ——&gt;  Send SYN,ACK(seq=b,ack=a+1,SYN,ACK)  ——&gt;  主机A</p>
+</li>
+<li><p> 主机A  ——&gt;  Send ACK(seq=a+1,ack=b+1,ACK)  ——&gt;  主机B</p>
+</li>
+</ul>
+<p><em>TCP通过三次握手建立<strong>可靠</strong>连接。</em></p>
+<h3 id="—TCP关闭连接过程-四次挥手"><a href="#—TCP关闭连接过程-四次挥手" class="headerlink" title="—TCP关闭连接过程(四次挥手)"></a>—TCP关闭连接过程(四次挥手)</h3><ul>
+<li> 主机A  ——&gt;  FIN,ACK(seq=a,ack=b)  ——&gt;  主机B</li>
+<li> 主机B  ——&gt;  ACK(seq=b,ack=a+1)  ——&gt;  主机A</li>
+<li> 主机B  ——&gt;  FIN,ACK(seq=b,ack=a+1)  ——&gt;  主机A</li>
+<li> 主机A  ——&gt;  ACK(seq=a+1,ack=b+1)  ——&gt;  主机B</li>
+</ul>
+<h3 id="6位标志位包含如下几项："><a href="#6位标志位包含如下几项：" class="headerlink" title="6位标志位包含如下几项："></a><strong>6位标志位包含如下几项</strong>：</h3><p>​    <strong>URG标志</strong>–表示紧急指针（urgent pointer）是否有效。</p>
+<p>​    <strong>ACK标志</strong>–表示确认号是否有效。我们称携带ACK标识的TCP报文段为确认报文段。</p>
+<p>​    <strong>PSH标志</strong>–提示接收端应用程序应该立即从TCP接收缓冲区中读走数据，为接收后续数据腾出</p>
+<p>​                      空间（如果应用程    序不将接收到的数据读走，它们就会一直停留在TCP接收缓冲区中）。</p>
+<p>​    <strong>RST标志</strong>–表示要求对方重新建立连接。我们称携带RST标志的TCP报文段为复位报文段。</p>
+<p>​    <strong>SYN标志</strong>–表示请求建立一个连接。我们称携带SYN标志的TCP报文段为同步报文段。</p>
+<p>​    <strong>FIN标志</strong>–表示通知对方本端要关闭连接了。我们称携带FIN标志的TCP报文段为结束报文段。</p>
+<hr>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><ul>
+<li><p>UDP是一种<strong>面向无连接</strong>的传输层协议，传输可靠性<strong>没有保证</strong>。</p>
+</li>
+<li><p>使用UDP传输数据时，由应用程序根据需要提供报文到达确认、排序、流量控制等功能。</p>
+</li>
+<li><p>UDP不提供重传机制，占用资源小，处理效率高</p>
+</li>
+<li><p>一些延时敏感的流量，如语音、视频等，<strong>通常使用UDP作为传输层协议。</strong></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/" data-id="ckkz4och400017kw05tyucn4a" data-title="数据通信模型&amp;传输层协议TCP/UDP" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/" rel="tag">网络及协议基础</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据通信模型&amp;通信模型介绍" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/09/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" class="article-date">
   <time class="dt-published" datetime="2021-02-09T08:30:00.000Z" itemprop="datePublished">2021-02-09</time>
 </a>
     
@@ -85,7 +199,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/02/09/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">数据通信模型&amp;通信模型介绍</a>
+      <a class="p-name article-title" href="/2021/02/09/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">数据通信模型&amp;通信模型介绍</a>
     </h1>
   
 
@@ -143,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/02/09/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" data-id="ckkxqvh6e00000sw0aenja88b" data-title="数据通信模型&amp;通信模型介绍" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/02/09/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" data-id="ckkz4ocgz00007kw03frvgmfy" data-title="数据通信模型&amp;通信模型介绍" class="article-share-link">Share</a>
       
       
       
@@ -290,7 +404,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/1-1/" style="font-size: 10px;">1-1</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络及协议基础</a>
+      <a href="/tags/1-1/" style="font-size: 10px;">1-1</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">网络及协议基础</a>
     </div>
   </div>
 
@@ -312,7 +426,11 @@
       <ul>
         
           <li>
-            <a href="/2021/02/09/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">数据通信模型&amp;通信模型介绍</a>
+            <a href="/2021/02/10/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AETCP-UDP/">数据通信模型&amp;传输层协议TCP/UDP</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/09/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B&%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">数据通信模型&amp;通信模型介绍</a>
           </li>
         
           <li>
